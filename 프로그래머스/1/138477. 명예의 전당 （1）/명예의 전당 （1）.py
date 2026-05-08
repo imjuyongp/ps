@@ -1,13 +1,14 @@
+import heapq
 def solution(k, score):
     answer = []
     top = [] # 명예의 전당
     for s in score:
+        heapq.heapify(top)
         if(len(top)<k):
-            top.append(s)
+            heapq.heappush(top, s)
         else:
             if min(top) < s:
-                top.append(s)
-                top.remove(min(top))
+                heapq.heappushpop(top, s)
         answer.append(min(top))
         
     return answer
