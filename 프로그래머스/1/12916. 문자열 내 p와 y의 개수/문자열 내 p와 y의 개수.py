@@ -1,5 +1,4 @@
 def solution(s):
-    answer = True
     p,y = 0,0
     s = s.lower()
     for i in s:
