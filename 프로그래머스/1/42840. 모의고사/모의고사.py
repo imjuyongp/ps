@@ -17,8 +17,9 @@ def solution(answers):
         
     score = [c1,c2,c3]
     max_score = max(score)
-    for i in range(3):
-        if(score[i] == max_score):
-            result.append(i+1)
+    
+    for idx,c in enumerate(score):
+        if(c == max_score):
+            result.append(idx+1)
     
     return result
