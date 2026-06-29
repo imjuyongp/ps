@@ -4,9 +4,6 @@ def solution(lottos, win_nums):
     win_max = 0
     win_min = 0
     
-    def rank(count):
-        return min(count, 6)
-    
     for i in lottos:
         if i==0:
             zero_cnt += 1
@@ -16,4 +13,4 @@ def solution(lottos, win_nums):
     win_max = 7- (correct + zero_cnt)
     win_min = 7 - correct
     
-    return [rank(win_max), rank(win_min)]
+    return [min(win_max, 6), min(win_min,6)]
