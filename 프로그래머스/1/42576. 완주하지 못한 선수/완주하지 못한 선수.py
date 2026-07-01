@@ -5,6 +5,6 @@ def solution(participant, completion):
     for name in completion:
         dic[name] -= 1
     for name in dic:
-        if dic[name] > 0:
+        if dic[name] == 1:
             return name
         
