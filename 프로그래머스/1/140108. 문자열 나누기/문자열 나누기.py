@@ -1,22 +1,14 @@
 def solution(s):
-    answer = []
-    
-    while s:
-        first = s[0] # 첫번째 글자
-        same = 0
-        diff = 0
-        for idx, i in enumerate(s):
-            if(i == first):
-                same += 1
-            else:
-                diff += 1
-            if(same == diff):
-                left = s[:idx+1]
-                answer.append(left)
-                s = s[idx+1:]
-                break
+    answer, same, diff, point = 0,0,0,0
+    for idx, i in enumerate(s):
+        if i == s[point]:
+            same += 1
         else:
-            answer.append(s)
-            break
-                
-    return len(answer)
+            diff += 1
+        if same == diff:
+            answer += 1
+            point = idx+1
+            same, diff = 0,0
+    if same != 0 or diff != 0:
+        answer+= 1
+    return answer
